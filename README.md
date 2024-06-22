@@ -26,7 +26,7 @@ Metrics Collected:
 
 ## Multi-VCS Architecture Diagram
 
-![Multi-VCS Architecture Diagram](drawings/VCSPM.png)
+![Multi-VCS Architecture Diagram](drawings/vcspm.png)
 
 ### Description
 
