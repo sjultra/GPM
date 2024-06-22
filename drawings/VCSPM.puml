@@ -1,0 +1,45 @@
+@startuml
+title VCSPM Architecture
+
+' Define actors
+actor "Admin" as Admin
+actor "Data Analyst" as Analyst
+
+' Define components and database
+rectangle "VCS Platforms" {
+  component "Azure DevOps ADO SaaS" as ADO
+  component "Bitbucket SaaS" as BitbucketSaaS
+  component "Bitbucket Server" as BitbucketServer
+  component "GitHub SaaS" as GitHubSaaS
+  component "GitHub Server" as GitHubServer
+  component "GitLab SaaS" as GitLabSaaS
+  component "GitLab Server" as GitLabServer
+  component "Local Repository" as Local
+}
+
+component "Metrics Collection Pipeline" as Pipeline
+database "Metrics Database" as DB
+
+' Relationships
+Admin -down-> Pipeline : Schedule & Configure
+Pipeline --> ADO : Collect metrics
+Pipeline --> BitbucketSaaS : Collect metrics
+Pipeline --> BitbucketServer : Collect metrics
+Pipeline --> GitHubSaaS : Collect metrics
+Pipeline --> GitHubServer : Collect metrics
+Pipeline --> GitLabSaaS : Collect metrics
+Pipeline --> GitLabServer : Collect metrics
+Pipeline --> Local : Collect metrics
+Pipeline -> DB : Store data
+Analyst -down-> DB : Analyze
+
+' Note on metrics collected
+note right of Pipeline
+  Metrics Collected:
+  - User list from org
+  - Repo list (Including branch list)
+  - Pipelines
+  - Last activity
+  - Recent commit history
+end note
+@enduml
