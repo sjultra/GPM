@@ -1,7 +1,7 @@
 # GPM (Git Platform Metrics )
 
 ## Overview
-This project provides an architecture for a development lifecycle tooling system aimed at collecting metrics from various Version Control Systems (VCS). The system will collect and store metrics from multiple Git platforms and allow for periodic analysis.
+This project provides an architecture for a development lifecycle tooling system aimed at collecting metrics from various Git Systems. The system will collect and store metrics from multiple Git platforms and allow for periodic analysis.
 
 Supported Platforms:
 1. Azure DevOps ADO SaaS
@@ -23,30 +23,30 @@ Metrics Collected:
 
 
 
-## Multi-VCS Architecture Diagram
+## Multi-Git Architecture Diagram
 
-![Multi-VCS Architecture Diagram](drawings/vcspm.png)
+![Multi-Git Architecture Diagram](drawings/gpm.png)
 
 ### Description
 
-The Multi-VCS Architecture diagram illustrates the workflow for collecting and analyzing development lifecycle metrics from multiple version control systems (VCS). The architecture supports a range of Git platforms and provides a scalable solution for metric collection and analysis. Here’s a detailed breakdown of the components and their interactions:
+The Multi-Git Architecture diagram illustrates the workflow for collecting and analyzing development lifecycle metrics from multiple Git systems. The architecture supports a range of Git platforms and provides a scalable solution for metric collection and analysis. Here’s a detailed breakdown of the components and their interactions:
 
 1. **Admin**:
    - **Role**: Configures and schedules the `Metrics Collection Pipeline`.
-   - **Interaction**: Directs how the pipeline should collect metrics from each VCS platform.
+   - **Interaction**: Directs how the pipeline should collect metrics from each Git platform.
 
 2. **Metrics Collection Pipeline**:
-   - **Role**: A centralized pipeline that gathers metrics from various VCS platforms.
-   - **Function**: Executes scheduled tasks to collect data on user activities, repository lists, pipelines, last activities, and recent commits from each integrated VCS.
+   - **Role**: A centralized pipeline that gathers metrics from various Git platforms.
+   - **Function**: Executes scheduled tasks to collect data on user activities, repository lists, pipelines, last activities, and recent commits from each integrated Git.
    - **Collected Metrics**:
      - User list from the organization
      - Repository list (including branch list)
      - Pipelines
      - Last activity
      - Recent commit history
-   - **Interaction**: Periodically collects data from the VCS platforms and stores it in the `Metrics Database`.
+   - **Interaction**: Periodically collects data from the Git platforms and stores it in the `Metrics Database`.
 
-3. **VCS Platforms**:
+3. **Git Platforms**:
    - **Components**:
      - Azure DevOps ADO SaaS
      - Bitbucket SaaS
@@ -56,7 +56,7 @@ The Multi-VCS Architecture diagram illustrates the workflow for collecting and a
      - GitLab SaaS
      - GitLab Server
      - Local Repository
-   - **Role**: Each VCS platform provides specific metrics about development activities.
+   - **Role**: Each Git platform provides specific metrics about development activities.
    - **Interaction**: The `Metrics Collection Pipeline` interfaces with these platforms to extract relevant metrics.
 
 4. **Metrics Database**:
@@ -71,13 +71,13 @@ The Multi-VCS Architecture diagram illustrates the workflow for collecting and a
 ### Workflow
 
 - **Admin Configuration**: The `Admin` configures the `Metrics Collection Pipeline` to specify what metrics to collect and when.
-- **Metrics Collection**: The `Metrics Collection Pipeline` connects to each VCS platform (including Azure DevOps, Bitbucket, GitHub, GitLab, and Local repositories) and gathers the defined metrics. This process runs on a scheduled basis (e.g., daily).
+- **Metrics Collection**: The `Metrics Collection Pipeline` connects to each Git platform (including Azure DevOps, Bitbucket, GitHub, GitLab, and Local repositories) and gathers the defined metrics. This process runs on a scheduled basis (e.g., daily).
 - **Data Storage**: Collected metrics are stored in the `Metrics Database`.
 - **Analysis**: The `Data Analyst` accesses the `Metrics Database` to perform analysis, create reports, and derive insights from the data.
 
 ### Purpose
 
-This architecture supports an organized and scalable method for collecting and analyzing metrics from multiple VCS platforms. It allows organizations to gain a comprehensive view of their development activities, enabling better decision-making based on accurate and timely metrics.
+This architecture supports an organized and scalable method for collecting and analyzing metrics from multiple Git platforms. It allows organizations to gain a comprehensive view of their development activities, enabling better decision-making based on accurate and timely metrics.
 
 
 
@@ -111,7 +111,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Key Points in the README:
 1. Overview: Describes the project goals and supported platforms.
 1. Current Implementation Example: Details the current state focusing on the local repository.
-1. Future Implementation: Provides a brief overview of planned support for multiple VCS platforms.
+1. Future Implementation: Provides a brief overview of planned support for multiple Git platforms.
 1. Setup Instructions: Guides users on setting up the local repository example.
 1. Contributing and License sections provide standard project guidelines.
 
