@@ -1,4 +1,4 @@
-# VCSPM ( Version Control Systems Platform Metrics )
+# GPM (Git Platform Metrics )
 
 ## Overview
 This project provides an architecture for a development lifecycle tooling system aimed at collecting metrics from various Version Control Systems (VCS). The system will collect and store metrics from multiple Git platforms and allow for periodic analysis.
